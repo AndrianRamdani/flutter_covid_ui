@@ -13,11 +13,11 @@ class TableGlobal extends StatelessWidget {
               if (snapshot.hasData) {
                 List<CovidGlobal> dataGLobal = snapshot.data;
                 return SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Center(
                   child: DataTable(
-                    sortColumnIndex: 0,
-                    sortAscending: true,
                   columns: [
                     DataColumn(
                       label: Text('Negara'
@@ -48,7 +48,7 @@ class TableGlobal extends StatelessWidget {
                           DataCell(Text(dataGlobal.deaths.toString())),
                         ])).toList(),
                   ),),
-                );
+                ),);
                 
               } else {
                 return Center(

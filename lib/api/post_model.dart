@@ -13,7 +13,34 @@ class Post {
     return Post(name: json['name'] as String, value: json['value'] as String);
   }
 }
+// Sembuh
+class Semb {
+  final String name;
+  final String value;
 
+  Semb({
+    @required this.name,
+    @required this.value
+  });
+
+  factory Semb.fromJson(Map<String, dynamic> json){
+    return Semb(name: json['name'] as String, value: json['value'] as String);
+  }
+}
+// Meninggal
+class Meni {
+  final String name;
+  final String value;
+
+  Meni({
+    @required this.name,
+    @required this.value
+  });
+
+  factory Meni.fromJson(Map<String, dynamic> json){
+    return Meni(name: json['name'] as String, value: json['value'] as String);
+  }
+}
 //Indonesia
 class Covid {
   final String name;

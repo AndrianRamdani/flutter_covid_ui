@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:covid/api/post_model.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-
+//Positif
 class GetPositif {
   final String postUrl = "https://api.kawalcorona.com/positif";
   Future<List<Post>> getPost() async{
@@ -18,6 +18,39 @@ class GetPositif {
     }
   }
 }
+//Sembuh
+class GetSembuh {
+  final String url = "https://api.kawalcorona.com/sembuh";
+  Future<List<Semb>> getSem() async{
+    Response res = await get(url);
+
+    if (res.statusCode == 200) {
+      List<dynamic> body = jsonDecode(res.body);
+
+      List<Semb> semb = body.map((dynamic item) => Semb.fromJson(item)).toList();
+      return semb;
+    } else {
+      throw "data tidak bisa di akses";
+    }
+  }
+}
+//Meninggal
+class GetMeninggal {
+  final String url = "https://api.kawalcorona.com/sembuh";
+  Future<List<Meni>> getMeni() async{
+    Response res = await get(url);
+
+    if (res.statusCode == 200) {
+      List<dynamic> body = jsonDecode(res.body);
+
+      List<Meni> meni = body.map((dynamic item) => Meni.fromJson(item)).toList();
+      return meni;
+    } else {
+      throw "data tidak bisa di akses";
+    }
+  }
+}
+//Global
 class DataGlobal {
   final String url = "https://api.kawalcorona.com/";
   Future<List<CovidGlobal>> getDataGlobal() async {

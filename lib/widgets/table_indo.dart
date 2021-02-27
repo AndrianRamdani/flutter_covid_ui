@@ -13,6 +13,9 @@ class TableIndonesia extends StatelessWidget {
               if (snapshot.hasData) {
                 List<CovidProvinsi> dataIndo = snapshot.data;
                 return SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
                   child: DataTable(
                   columns: [
                     DataColumn(
@@ -36,7 +39,7 @@ class TableIndonesia extends StatelessWidget {
                           DataCell(Text(dataIndo.kasus_meni.toString())),
                         ])).toList(),
                   ),
-                );
+                ),);
                 
               } else {
                 return Center(
